@@ -1,0 +1,20 @@
+[package]
+name = 'bash-algo'
+slug = 'balgo'
+version = ''
+authors = ['Edwin Kofler <edwin@kofler.dev>']
+description = 'Common algorithms implemented in pure Bash'
+
+[run]
+dependencies = ['https://github.com/hyperupcall/bats-common-utils.git@v3.0.1']
+sourceDirs = ['pkg/lib/public']
+builtinDirs = []
+binDirs = []
+completionDirs = []
+manDirs = []
+
+[run.shellEnvironment]
+
+[run.setOptions]
+
+[run.shoptOptions]
