@@ -2,7 +2,7 @@
 
 algo.base64encode() {
 	unset REPLY; REPLY=
-	local input="$1"
+	local input="${1:-}"
 
 	local char_str="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
 	local input_byte_{one,two,three}=
@@ -45,11 +45,11 @@ algo.base64encode() {
 
 algo.base64decode() {
 	unset REPLY; REPLY=
-	local input="$1"
+	local input="${1:-}"
 
+	local char_str="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
 	local input_byte_{one,two,three,four}=
 	local index_{one,two,three,four}=
-	local char_str="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
 	for ((i=0; i<${#input}; i=i+4)); do
 		printf -v input_byte_one '%c' "${input:$i:1}"
 		printf -v input_byte_two '%c' "${input:$i+1:1}"
