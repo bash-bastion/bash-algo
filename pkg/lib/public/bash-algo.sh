@@ -114,7 +114,7 @@ algo.base32decode() {
 		# i.e. `-1` in traditional languages. This occurs when an `=` is found
 
 		# Output byte two
-		bits_two=$(( ((index_two & 2#00000011) << 6) | ((index_three & 2#00011111) << 1) | ((index_four & 2#10000000) >> 7)  ))
+		bits_two=$(( ((index_two & 2#00000011) << 6) | ((index_three & 2#00011111) << 1) | ((index_four & 2#00010000) >> 4)  ))
 		printf -v output_byte_two '%03o' "$bits_two"
 		printf -v output_byte_two "\\$output_byte_two"
 
