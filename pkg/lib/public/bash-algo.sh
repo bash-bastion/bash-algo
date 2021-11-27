@@ -8,6 +8,7 @@ algo.base32_encode() {
 	local input_byte_{one,two,three,four,five}=
 	local bits_{one,two,three,four,five,six,seven,eight}=
 	local output_byte_{one,two,three,four,five,six,seven,eight}=
+	local i=
 	for ((i=0; i<${#input}; i=i+5)); do
 		printf -v input_byte_one '%d' "'${input:$i:1}"
 		printf -v input_byte_two '%d' "'${input:$i+1:1}"
@@ -84,6 +85,7 @@ algo.base32_decode() {
 	local index_{one,two,three,four,five,six,seven,eight}=
 	local bits_{one,two,three,four,five}=
 	local output_byte_{one,two,three,four,five}=
+	local i=
 	for ((i=0; i<${#input}; i=i+8)); do
 		printf -v input_byte_one '%c' "${input:$i:1}"
 		printf -v input_byte_two '%c' "${input:$i+1:1}"
@@ -144,7 +146,8 @@ algo.base64_encode() {
 	local char_str='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
 	local input_byte_{one,two,three}=
 	local bits_{one,two,three,four}=
-	local output_byte_{one,two,three_four}
+	local output_byte_{one,two,three,four}=
+	local i=
 	for ((i=0; i<${#input}; i=i+3)); do
 		# If there are only two bytes left, the value of third_byte and
 		# fourth_byte will both be 0
@@ -189,6 +192,7 @@ algo.base64_decode() {
 	local index_{one,two,three,four}=
 	local bits_{one,two,three}=
 	local output_byte_{one,two,three}=
+	local i=
 	for ((i=0; i<${#input}; i=i+4)); do
 		printf -v input_byte_one '%c' "${input:$i:1}"
 		printf -v input_byte_two '%c' "${input:$i+1:1}"
