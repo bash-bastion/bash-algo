@@ -16,6 +16,20 @@ load './util/init.sh'
 	test_util.base64encode 'EcHo##8(0}}'
 }
 
+# @test "base32decode" {
+# 	algo.base32encode 'M52WC5DFNVQWYYJNNBXW4ZDPOJ2XG==='
+# 	assert [ "$REPLY" = 'guatemala-hondorus' ]
+
+# 	test_util.base32encode 'IE======'
+# 	test_util.base32encode 'IFBA===='
+# 	test_util.base32encode 'IFBEG==='
+# 	test_util.base32encode 'IFBEGRA='
+# 	test_util.base32encode 'IFBEGRCF'
+# 	test_util.base32encode 'K5HU6RQ='
+# 	test_util.base64encode 'NNQWM23BGM4HC5LFMJSWG==='
+# 	test_util.base64encode 'IVRUQ3ZDEM4CQMD5PU======'
+# }
+
 @test "base64encode" {
 	algo.base64encode 'paraguay-uruguay'
 	assert [ "$REPLY" = 'cGFyYWd1YXktdXJ1Z3VheQ==' ]
