@@ -77,9 +77,9 @@ algo.base32encode() {
 
 algo.base64encode() {
 	unset REPLY; REPLY=
-	local input="${1:-}"
+	local input="$1"
 
-	local char_str="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
+	local char_str='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
 	local input_byte_{one,two,three}=
 	local bits_{one,two,three,four}=
 	local output_byte_{one,two,three_four}
@@ -115,16 +115,17 @@ algo.base64encode() {
 		fi
 
 		REPLY+="${output_byte_one}${output_byte_two}${output_byte_three}${output_byte_four}"
-	done
+	done; unset i
 }
 
 algo.base64decode() {
 	unset REPLY; REPLY=
-	local input="${1:-}"
+	local input="$1"
 
-	local char_str="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
+	local char_str='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
 	local input_byte_{one,two,three,four}=
 	local index_{one,two,three,four}=
+	local output_byte_{one,two,three}=
 	for ((i=0; i<${#input}; i=i+4)); do
 		printf -v input_byte_one '%c' "${input:$i:1}"
 		printf -v input_byte_two '%c' "${input:$i+1:1}"
@@ -165,5 +166,5 @@ algo.base64decode() {
 		fi
 
 		REPLY+="${output_byte_one}${output_byte_two}${output_byte_three}"
-	done
+	done; unset i
 }
