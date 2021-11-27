@@ -1,6 +1,6 @@
 # shellcheck shell=bash
 
-algo.base32encode() {
+algo.base32_encode() {
 	unset REPLY; REPLY=
 	local input="$1"
 
@@ -75,7 +75,7 @@ algo.base32encode() {
 	done; unset i
 }
 
-algo.base32decode() {
+algo.base32_decode() {
 	unset REPLY; REPLY=
 	local input="$1"
 
@@ -137,7 +137,7 @@ algo.base32decode() {
 	done; unset i
 }
 
-algo.base64encode() {
+algo.base64_encode() {
 	unset REPLY; REPLY=
 	local input="$1"
 
@@ -180,7 +180,7 @@ algo.base64encode() {
 	done; unset i
 }
 
-algo.base64decode() {
+algo.base64_decode() {
 	unset REPLY; REPLY=
 	local input="$1"
 

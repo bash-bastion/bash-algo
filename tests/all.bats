@@ -2,60 +2,60 @@
 
 load './util/init.sh'
 
-@test "base32encode" {
-	algo.base32encode 'guatemala-hondorus'
+@test "base32_encode" {
+	algo.base32_encode 'guatemala-hondorus'
 	assert [ "$REPLY" = 'M52WC5DFNVQWYYJNNBXW4ZDPOJ2XG===' ]
 
-	test_util.base32encode 'A'
-	test_util.base32encode 'AB'
-	test_util.base32encode 'ABC'
-	test_util.base32encode 'ABCD'
-	test_util.base32encode 'ABCDE'
-	test_util.base32encode 'WOOF'
-	test_util.base64encode 'kafka38quebec'
-	test_util.base64encode 'EcHo##8(0}}'
+	test_util.base32_encode 'A'
+	test_util.base32_encode 'AB'
+	test_util.base32_encode 'ABC'
+	test_util.base32_encode 'ABCD'
+	test_util.base32_encode 'ABCDE'
+	test_util.base32_encode 'WOOF'
+	test_util.base32_encode 'kafka38quebec'
+	test_util.base32_encode 'EcHo##8(0}}'
 }
 
-@test "base32decode" {
-	algo.base32encode 'M52WC5DFNVQWYYJNNBXW4ZDPOJ2XG==='
+@test "base32_decode" {
+	algo.base32_decode 'M52WC5DFNVQWYYJNNBXW4ZDPOJ2XG==='
 	assert [ "$REPLY" = 'guatemala-hondorus' ]
 
-	test_util.base32encode 'IE======'
-	test_util.base32encode 'IFBA===='
-	test_util.base32encode 'IFBEG==='
-	test_util.base32encode 'IFBEGRA='
-	test_util.base32encode 'IFBEGRCF'
-	test_util.base32encode 'K5HU6RQ='
-	test_util.base64encode 'NNQWM23BGM4HC5LFMJSWG==='
-	test_util.base64encode 'IVRUQ3ZDEM4CQMD5PU======'
+	test_util.base32_decode 'IE======'
+	test_util.base32_decode 'IFBA===='
+	test_util.base32_decode 'IFBEG==='
+	test_util.base32_decode 'IFBEGRA='
+	test_util.base32_decode 'IFBEGRCF'
+	test_util.base32_decode 'K5HU6RQ='
+	test_util.base32_decode 'NNQWM23BGM4HC5LFMJSWG==='
+	test_util.base32_decode 'IVRUQ3ZDEM4CQMD5PU======'
 }
 
-@test "base64encode" {
-	algo.base64encode 'paraguay-uruguay'
+@test "base64_encode" {
+	algo.base64_encode 'paraguay-uruguay'
 	assert [ "$REPLY" = 'cGFyYWd1YXktdXJ1Z3VheQ==' ]
 
-	test_util.base64encode 'A'
-	test_util.base64encode 'AB'
-	test_util.base64encode 'ABC'
-	test_util.base64encode 'ABCD'
-	test_util.base64encode 'WOOF'
-	test_util.base64encode 'kafka38quebec'
-	test_util.base64encode 'EcHo##8(0}}'
+	test_util.base64_encode 'A'
+	test_util.base64_encode 'AB'
+	test_util.base64_encode 'ABC'
+	test_util.base64_encode 'ABCD'
+	test_util.base64_encode 'WOOF'
+	test_util.base64_encode 'kafka38quebec'
+	test_util.base64_encode 'EcHo##8(0}}'
 }
 
-@test "base64decode" {
-	algo.base64decode 'cGFyYWd1YXktdXJ1Z3VheQ=='
+@test "base64_decode" {
+	algo.base64_decode 'cGFyYWd1YXktdXJ1Z3VheQ=='
 	assert [ "$REPLY" = 'paraguay-uruguay' ]
 
-	test_util.base64decode 'QQ=='
-	test_util.base64decode 'QUI='
-	test_util.base64decode 'QUJD'
-	test_util.base64decode 'QUJDRA=='
-	test_util.base64decode 'V09PRg=='
-	test_util.base64decode 'a2Fma2EzOHF1ZWJlYw=='
-	test_util.base64decode 'RWNIbyMjOCgwfX0='
+	test_util.base64_decode 'QQ=='
+	test_util.base64_decode 'QUI='
+	test_util.base64_decode 'QUJD'
+	test_util.base64_decode 'QUJDRA=='
+	test_util.base64_decode 'V09PRg=='
+	test_util.base64_decode 'a2Fma2EzOHF1ZWJlYw=='
+	test_util.base64_decode 'RWNIbyMjOCgwfX0='
 
-	test_util.base64decode 'Z3VhdGVtYWxhLWhvbmRvcnVz'
-	test_util.base64decode 'YWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd4eXo='
-	test_util.base64decode 'YXNsZGZramFzbDtka2ZqYTtzbGRrZmphO2xzZGtqZmE7bGtkc2pmO2xha2pkZnFvcHdlcmlydWpwb2Zpc2R1amxranZoeGtjbGp2YnNmZGtsamhhYmxlcnVocW9wZWlydWhmZG9pdXNqYmh2Y2tsc2poYmRmaW9wcXdlcnVkaGZxd29waWVkZnVoYWxpc2tkamZnYmhpd3FvdWVnaHJ0b3FpdWVyaHBmZHNpb2F1aHBxb2FpdWRoZnNrbGpmaGFsc2tkamZoYXEyMzA5LXU4d3BvZWk7IGFzZGxmamhxaXV3b2pFSA=='
+	test_util.base64_decode 'Z3VhdGVtYWxhLWhvbmRvcnVz'
+	test_util.base64_decode 'YWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd4eXo='
+	test_util.base64_decode 'YXNsZGZramFzbDtka2ZqYTtzbGRrZmphO2xzZGtqZmE7bGtkc2pmO2xha2pkZnFvcHdlcmlydWpwb2Zpc2R1amxranZoeGtjbGp2YnNmZGtsamhhYmxlcnVocW9wZWlydWhmZG9pdXNqYmh2Y2tsc2poYmRmaW9wcXdlcnVkaGZxd29waWVkZnVoYWxpc2tkamZnYmhpd3FvdWVnaHJ0b3FpdWVyaHBmZHNpb2F1aHBxb2FpdWRoZnNrbGpmaGFsc2tkamZoYXEyMzA5LXU4d3BvZWk7IGFzZGxmamhxaXV3b2pFSA=='
 }
