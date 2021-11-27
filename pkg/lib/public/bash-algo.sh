@@ -187,6 +187,7 @@ algo.base64decode() {
 	local char_str='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
 	local input_byte_{one,two,three,four}=
 	local index_{one,two,three,four}=
+	local bits_{one,two,three}=
 	local output_byte_{one,two,three}=
 	for ((i=0; i<${#input}; i=i+4)); do
 		printf -v input_byte_one '%c' "${input:$i:1}"
@@ -194,7 +195,6 @@ algo.base64decode() {
 		printf -v input_byte_three '%c' "${input:$i+2:1}"
 		printf -v input_byte_four '%c' "${input:$i+3:1}"
 
-		# TODO: `set -o nocasematch` likely affects this
 		# Equivalent to char_str.indexOf(input)
 		index_one="${char_str%$input_byte_one*}"; index_one=${#index_one}
 		index_two="${char_str%$input_byte_two*}"; index_two=${#index_two}
@@ -210,7 +210,7 @@ algo.base64decode() {
 		# i.e. `-1` in traditional languages. This occurs when an `=` is found
 
 		# Output byte two
-		if ((index_three == 64)); then
+		if ((index_three == 64)); then # TODO: if statement required
 			output_byte_two=
 		else
 			bits_two=$(( ((index_two & 2#00001111) << 4) | ((index_three >> 2) & 2#00001111) ))
