@@ -2,6 +2,20 @@
 
 load './util/init.sh'
 
+@test "base32encode" {
+	algo.base32encode 'guatemala-hondorus'
+	assert [ "$REPLY" = 'M52WC5DFNVQWYYJNNBXW4ZDPOJ2XG===' ]
+
+	test_util.base32encode 'A'
+	test_util.base32encode 'AB'
+	test_util.base32encode 'ABC'
+	test_util.base32encode 'ABCD'
+	test_util.base32encode 'ABCDE'
+	test_util.base32encode 'WOOF'
+	test_util.base64encode 'kafka38quebec'
+	test_util.base64encode 'EcHo##8(0}}'
+}
+
 @test "base64encode" {
 	algo.base64encode 'paraguay-uruguay'
 	assert [ "$REPLY" = 'cGFyYWd1YXktdXJ1Z3VheQ==' ]
