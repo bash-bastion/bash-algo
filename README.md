@@ -6,6 +6,8 @@ All algorithms use _only_ builtins and create _no subshells_
 
 ## Algorithms
 
+- [ ] URL encode
+- [ ] URL decode
 - [x] base32 encode
 - [x] base32 decode
 - [x] base64 encode
