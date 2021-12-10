@@ -164,7 +164,7 @@ algo.base64_encode() {
 		output_byte_two="${char_str:$bits_two:1}"
 
 		# Output byte three
-		if ((input_byte_two == 0)); then
+		if ((input_byte_two == 0)); then # TODO: required?
 			output_byte_three='='
 		else
 			bits_three=$(( (input_byte_two & 2#00001111) << 2 | input_byte_three >> 6 & 2#00000011 ))
@@ -214,7 +214,7 @@ algo.base64_decode() {
 		# i.e. `-1` in traditional languages. This occurs when an `=` is found
 
 		# Output byte two
-		if ((index_three == 64)); then # TODO: if statement required
+		if ((index_three == 64)); then
 			output_byte_two=
 		else
 			bits_two=$(( ((index_two & 2#00001111) << 4) | ((index_three >> 2) & 2#00001111) ))

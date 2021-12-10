@@ -6,14 +6,21 @@ All algorithms use _only_ builtins and create _no subshells_
 
 ## Algorithms
 
-- [ ] URL encode
-- [ ] URL decode
+- [x] URL encode
+- [x] URL decode
+- [ ] uuencode
+- [ ] uudecode
 - [x] base32 encode
 - [x] base32 decode
 - [x] base64 encode
 - [x] base64 decode
+- [ ] ascii85 encode
+- [ ] ascii85 decode
 - [x] PEM encode
 - [x] PEM decode
+- [ ] adler32
+- [ ] crc32
+- [ ] crc64
 - [ ] md5
 - [ ] sha1
 - [ ] sha256
