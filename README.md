@@ -8,8 +8,6 @@ All algorithms use _only_ builtins and create _no subshells_
 
 - [x] URL encode
 - [x] URL decode
-- [ ] uuencode
-- [ ] uudecode
 - [x] base32 encode
 - [x] base32 decode
 - [x] base64 encode
@@ -27,6 +25,7 @@ All algorithms use _only_ builtins and create _no subshells_
 
 ## Roadmap
 
+- Pem_encode/decode uses subshells
 - Better error handling
 - Input through stdin (--input/--stdin?)
 

@@ -97,14 +97,14 @@ algo.base32_decode() {
 		printf -v input_byte_eight '%c' "${input:$i+7:1}"
 
 		# Equivalent to char_str.indexOf(input)
-		index_one="${char_str%$input_byte_one*}"; index_one=${#index_one}
-		index_two="${char_str%$input_byte_two*}"; index_two=${#index_two}
-		index_three="${char_str%$input_byte_three*}"; index_three=${#index_three}
-		index_four="${char_str%$input_byte_four*}"; index_four=${#index_four}
-		index_five="${char_str%$input_byte_five*}"; index_five=${#index_five}
-		index_six="${char_str%$input_byte_six*}"; index_six=${#index_six}
-		index_seven="${char_str%$input_byte_seven*}"; index_seven=${#index_seven}
-		index_eight="${char_str%$input_byte_eight*}"; index_eight=${#index_eight}
+		index_one="${char_str%"$input_byte_one"*}"; index_one=${#index_one}
+		index_two="${char_str%"$input_byte_two"*}"; index_two=${#index_two}
+		index_three="${char_str%"$input_byte_three"*}"; index_three=${#index_three}
+		index_four="${char_str%"$input_byte_four"*}"; index_four=${#index_four}
+		index_five="${char_str%"$input_byte_five"*}"; index_five=${#index_five}
+		index_six="${char_str%"$input_byte_six"*}"; index_six=${#index_six}
+		index_seven="${char_str%"$input_byte_seven"*}"; index_seven=${#index_seven}
+		index_eight="${char_str%"$input_byte_eight"*}"; index_eight=${#index_eight}
 
 		# Output byte one
 		bits_one=$(( ((index_one & 2#00011111) << 3) | ((index_two >> 2) & 2#00000111) ))
@@ -200,10 +200,10 @@ algo.base64_decode() {
 		printf -v input_byte_four '%c' "${input:$i+3:1}"
 
 		# Equivalent to char_str.indexOf(input)
-		index_one="${char_str%$input_byte_one*}"; index_one=${#index_one}
-		index_two="${char_str%$input_byte_two*}"; index_two=${#index_two}
-		index_three="${char_str%$input_byte_three*}"; index_three=${#index_three}
-		index_four="${char_str%$input_byte_four*}"; index_four=${#index_four}
+		index_one="${char_str%"$input_byte_one"*}"; index_one=${#index_one}
+		index_two="${char_str%"$input_byte_two"*}"; index_two=${#index_two}
+		index_three="${char_str%"$input_byte_three"*}"; index_three=${#index_three}
+		index_four="${char_str%"$input_byte_four"*}"; index_four=${#index_four}
 
 		# Output byte one
 		bits_one=$(( ((index_one & 2#00111111) << 2) | ((index_two >> 4) & 2#00000011) ))
