@@ -234,3 +234,39 @@ algo.base64_decode() {
 		REPLY+="${output_byte_one}${output_byte_two}${output_byte_three}"
 	done; unset i
 }
+
+algo.ascii85_encode() {
+	unset REPLY; REPLY=
+	local input="$1"
+
+	local char_str='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.-:+=^!/*?&<>()[]{}@%$#'
+
+	local i=
+	for ((i=0; i < ${#input}; i=i+1)); do
+		:
+	done
+}
+
+algo.ascii85_decode() {
+	unset REPLY; REPLY=
+	local input="$1"
+}
+
+algo.md5() {
+	unset REPLY; REPLY=
+	local input="$1"
+
+	local m=${#input}
+
+	local -a T=(
+		$((0xD76AA476)) $((0xE8C7B756)) $((0x242070DB)) $((0xC1BDCEEE))
+	)
+
+	local A=$((0x01234567))
+	local B=$((0x89abcdef))
+	local C=$((0xfedcba98))
+	local D=$((0x76543210))
+
+	# F
+
+}

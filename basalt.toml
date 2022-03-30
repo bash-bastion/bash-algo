@@ -6,7 +6,7 @@ authors = ['Edwin Kofler <edwin@kofler.dev>']
 description = 'Common algorithms implemented in pure Bash'
 
 [run]
-dependencies = ['https://github.com/hyperupcall/bats-common-utils.git@v3.0.1']
+dependencies = ['https://github.com/hyperupcall/bats-all@v4.3.0']
 sourceDirs = ['pkg/lib/public']
 builtinDirs = []
 binDirs = []
@@ -16,5 +16,8 @@ manDirs = []
 [run.shellEnvironment]
 
 [run.setOptions]
+errexit = 'on'
+pipefail = 'on'
 
 [run.shoptOptions]
+shift_verbose = 'on'

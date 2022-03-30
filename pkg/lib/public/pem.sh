@@ -85,7 +85,7 @@ algo.pem_decode() {
 			fi
 			;;
 		esac
-	done < <(printf '%s' "$1"); unset char
+	done < <(printf '%s' "$1"); unset -v char
 
 	# TODO: bash-error
 	case "$mode" in
@@ -107,4 +107,3 @@ algo.pem_decode() {
 	esac >&2
 }
 
-algo.pem_decode "$(<'.hidden/file.pem')"
