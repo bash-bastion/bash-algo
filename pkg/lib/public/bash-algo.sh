@@ -1,5 +1,7 @@
 # shellcheck shell=bash
 
+# @description Encodes an arbitrary string to a base32 sequence of characters
+# @arg $1 string input
 algo.base32_encode() {
 	unset REPLY; REPLY=
 	local input="$1"
@@ -76,6 +78,8 @@ algo.base32_encode() {
 	done; unset i
 }
 
+# @description Decodes a base32 sequence of characters to a string
+# @arg $1 string input
 algo.base32_decode() {
 	unset REPLY; REPLY=
 	local input="$1"
@@ -139,6 +143,8 @@ algo.base32_decode() {
 	done; unset i
 }
 
+# @description Encodes an arbitrary string to a base64 sequence of characters
+# @arg $1 string input
 algo.base64_encode() {
 	unset REPLY; REPLY=
 	local input="$1"
@@ -183,6 +189,8 @@ algo.base64_encode() {
 	done; unset i
 }
 
+# @description Decodes a base64 sequence of characters to a string
+# @arg $1 string input
 algo.base64_decode() {
 	unset REPLY; REPLY=
 	local input="$1"
@@ -235,6 +243,9 @@ algo.base64_decode() {
 	done; unset i
 }
 
+# @description Encodes an arbitrary string to a base85 sequence of characters
+# @arg $1 string input
+# @internal
 algo.ascii85_encode() {
 	unset REPLY; REPLY=
 	local input="$1"
@@ -247,11 +258,17 @@ algo.ascii85_encode() {
 	done
 }
 
+# @description Decodes a base85 sequence of characters to a string
+# @arg $1 string input
+# @internal
 algo.ascii85_decode() {
 	unset REPLY; REPLY=
 	local input="$1"
 }
 
+# @description Performs the md5 algorithm on an arbitrary string
+# @arg $1 string input
+# @internal
 algo.md5() {
 	unset REPLY; REPLY=
 	local input="$1"

@@ -34,5 +34,5 @@ All algorithms use _only_ builtins and create _no subshells_
 Use [Basalt](https://github.com/hyperupcall/basalt), a Bash package manager, to add this project as a dependency
 
 ```sh
-basalt add 'hyperupcall/bash-algo'
+basalt add hyperupcall/bash-algo
 ```

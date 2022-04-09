@@ -1,5 +1,9 @@
 # shellcheck shell=bash
 
+# @description PEM encode data
+# @arg $1 string PEM label
+# @arg $2 string PEM contents
+# @arg $3 string Output file
 algo.pem_encode() {
 	local pem_label="$1"
 	local pem_contents="$2"
@@ -22,6 +26,8 @@ algo.pem_encode() {
 }
 
 # TODO: implement headers, etc.
+# @description PEM decode data
+# @arg $1 string input
 algo.pem_decode() {
 	unset REPLY; REPLY=
 	local input="$1"

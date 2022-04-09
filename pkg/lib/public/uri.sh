@@ -1,5 +1,7 @@
 # shellcheck shell=bash
 
+# @description URI encode a particular string
+# @arg $1 string input
 algo.uri_encode() {
 	unset REPLY; REPLY=
 	local input="$1"
@@ -8,6 +10,7 @@ algo.uri_encode() {
 	local uri_reserved=";/?:@&=+$,"
 	local uri_unescaped="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_.!~*'()#"
 
+	# shellcheck disable=SC1007
 	local i= char=
 	for ((i=0; i<${#input}; ++i)); do
 		char="${input:$i:1}"
@@ -25,9 +28,12 @@ algo.uri_encode() {
 	printf '%s\n' "$REPLY"
 }
 
+# @description URI decode a particular string
+# @arg $1 string input
 algo.uri_decode() {
 	unset REPLY; REPLY=
+	local input="$1"
 
-	local url_encoded="${1//+/ }"
+	local url_encoded="${input//+/ }"
 	printf -v REPLY '%b' "${url_encoded//%/\\x}"
 }
