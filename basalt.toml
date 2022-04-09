@@ -1,6 +1,6 @@
 [package]
 name = 'bash-algo'
-slug = 'balgo'
+slug = 'algo'
 version = '0.2.0'
 authors = ['Edwin Kofler <edwin@kofler.dev>']
 description = 'Common algorithms implemented in pure Bash'

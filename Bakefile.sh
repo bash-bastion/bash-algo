@@ -5,8 +5,7 @@ task.test() {
 }
 
 task.docs() {
-	shdoc < './pkg/lib/public/bash-algo.sh' > './docs/algo.md'
-	for f in pem uri; do
+	for f in algo pem uri; do
 		shdoc < "./pkg/lib/public/$f.sh" > "./docs/$f.md"
 	done
 }
