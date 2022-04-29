@@ -6,6 +6,6 @@ task.test() {
 
 task.docs() {
 	for f in algo pem uri; do
-		shdoc < "./pkg/lib/public/$f.sh" > "./docs/$f.md"
+		shdoc < "./pkg/src/public/$f.sh" > "./docs/$f.md"
 	done
 }
