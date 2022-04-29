@@ -11,7 +11,7 @@ algo.base32_encode() {
 	fi
 
 	local input_byte_{one,two,three,four,five}=
-	if [ "$flag" = '--as-arg' ]; then
+	if [ "$flag" = '--use-arg' ]; then
 		local arg="$2" 
 		if [ -z "$arg" ]; then
 			core.err_set 'INVALID_ARGS' || return
@@ -28,7 +28,7 @@ algo.base32_encode() {
 			c="${arg:$i+4:1}"; printf -v input_byte_five "${c:+%d}" "'$c"
 			algo.base32_encode_impl
 		done; unset -v i c
-	elif [ "$flag" = '--as-stdin' ]; then
+	elif [ "$flag" = '--use-stdin' ]; then
 		while IFS=' ' read -r input_byte_{one,two,three,four,five}; do
 			algo.base32_encode_impl
 		done < <(od -An -td1)
@@ -48,7 +48,7 @@ algo.base32_decode() {
 	fi
 
 	local input_byte_{one,two,three,four,five,six,seven,eight}=
-	if [ "$flag" = '--as-arg' ]; then
+	if [ "$flag" = '--use-arg' ]; then
 		local arg="$2" 
 		if [ -z "$arg" ]; then
 			core.err_set 'INVALID_ARGS' || return
@@ -68,7 +68,7 @@ algo.base32_decode() {
 			c="${arg:$i+7:1}"; printf -v input_byte_eight "${c:+%c}" "$c"
 			algo.base32_decode_impl
 		done; unset -v i c
-	elif [ "$flag" = '--as-stdin' ]; then
+	elif [ "$flag" = '--use-stdin' ]; then
 		while IFS=' ' read -r input_byte_{one,two,three,four,five,six,seven,eight}; do
 			algo.base32_decode_impl
 		done < <(od -An -td1)
@@ -88,7 +88,7 @@ algo.base64_encode() {
 	fi
 
 	local input_byte_{one,two,three}=
-	if [ "$flag" = '--as-arg' ]; then
+	if [ "$flag" = '--use-arg' ]; then
 		local arg="$2" 
 		if [ -z "$arg" ]; then
 			core.err_set 'INVALID_ARGS' || return
@@ -103,7 +103,7 @@ algo.base64_encode() {
 			c="${arg:$i+2:1}"; printf -v input_byte_three "${c:+%d}" "'$c"
 			algo.base64_encode_impl
 		done; unset -v i c
-	elif [ "$flag" = '--as-stdin' ]; then
+	elif [ "$flag" = '--use-stdin' ]; then
 		while IFS=' ' read -r input_byte_{one,two,three}; do
 			algo.base64_encode_impl
 		done < <(od -An -td1)
@@ -123,7 +123,7 @@ algo.base64_decode() {
 	fi
 
 	local input_byte_{one,two,three,four}=
-	if [ "$flag" = '--as-arg' ]; then
+	if [ "$flag" = '--use-arg' ]; then
 		local arg="$2" 
 		if [ -z "$arg" ]; then
 			core.err_set 'INVALID_ARGS' || return
@@ -139,7 +139,7 @@ algo.base64_decode() {
 			c="${arg:$i+3:1}"; printf -v input_byte_four "${c:+%c}" "$c"
 			algo.base64_decode_impl
 		done; unset -v i c
-	elif [ "$flag" = '--as-stdin' ]; then
+	elif [ "$flag" = '--use-stdin' ]; then
 		while IFS=' ' read -r input_byte_{one,two,three,four}; do
 			algo.base64_decode_impl
 		done < <(od -An -td1)
