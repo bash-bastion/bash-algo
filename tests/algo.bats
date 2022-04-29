@@ -14,6 +14,7 @@ load './util/init.sh'
 	test_util.base32_encode --use-arg 'WOOF'
 	test_util.base32_encode --use-arg 'kafka38quebec'
 	test_util.base32_encode --use-arg 'EcHo##8(0}}'
+	test_util.base32_encode --use-stdin <(printf '%s' 'EcHo##8(0}}') < <(printf '%s' 'EcHo##8(0}}') 
 }
 
 @test "base32_decode" {

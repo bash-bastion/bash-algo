@@ -26,12 +26,57 @@ algo.base32_encode() {
 			b="${arg:$i+2:1}"; printf -v input_byte_three "${b:+%d}" "'$b"
 			b="${arg:$i+3:1}"; printf -v input_byte_four "${b:+%d}" "'$b"
 			b="${arg:$i+4:1}"; printf -v input_byte_five "${b:+%d}" "'$b"
+
 			algo.base32_encode_impl
 		done; unset -v i b
 	elif [ "$flag" = '--use-stdin' ]; then
-		while IFS=' ' read -r input_byte_{one,two,three,four,five}; do
-			algo.base32_encode_impl
-		done < <(od -An -td1)
+		local line=
+	
+		while IFS= read -r line; do
+			while [ -n "$line" ]; do
+				line=${line#"${line%%[![:space:]]*}"}
+				input_byte_one=${line%% *}
+				line=${line#* }
+
+				if [[ $line =~ ^[[:digit:]]+$ ]]; then
+					line=
+				fi
+
+				line=${line#"${line%%[![:space:]]*}"}
+				input_byte_two=${line%% *}
+				line=${line#* }
+
+				if [[ $line =~ ^[[:digit:]]+$ ]]; then
+					line=
+				fi
+
+				line=${line#"${line%%[![:space:]]*}"}
+				input_byte_three=${line%% *}
+				line=${line#* }
+				
+				if [[ $line =~ ^[[:digit:]]+$ ]]; then
+					line=
+				fi
+
+				line=${line#"${line%%[![:space:]]*}"}
+				input_byte_four=${line%% *}
+				line=${line#* }
+
+				if [[ $line =~ ^[[:digit:]]+$ ]]; then
+					line=
+				fi
+
+				line=${line#"${line%%[![:space:]]*}"}
+				input_byte_five=${line%% *}
+				line=${line#* }
+
+				if [[ $line =~ ^[[:digit:]]+$ ]]; then
+					line=
+				fi
+
+				algo.base32_encode_impl
+			done
+		done < <(od -An -td1); unset -v line
 	else
 		core.err_set 'INVALID_ARGS' || return
 	fi
