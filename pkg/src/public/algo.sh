@@ -18,16 +18,16 @@ algo.base32_encode() {
 		fi
 
 		# shellcheck disable=SC1007
-		local i= c=
+		local i= b=
 		# shellcheck disable=SC2059
 		for ((i=0; i<${#arg}; i=i+5)); do
-			c="${arg:$i:1}"; printf -v input_byte_one "${c:+%d}" "'$c"
-			c="${arg:$i+1:1}"; printf -v input_byte_two "${c:+%d}" "'$c"
-			c="${arg:$i+2:1}"; printf -v input_byte_three "${c:+%d}" "'$c"
-			c="${arg:$i+3:1}"; printf -v input_byte_four "${c:+%d}" "'$c"
-			c="${arg:$i+4:1}"; printf -v input_byte_five "${c:+%d}" "'$c"
+			b="${arg:$i:1}"; printf -v input_byte_one "${b:+%d}" "'$b"
+			b="${arg:$i+1:1}"; printf -v input_byte_two "${b:+%d}" "'$b"
+			b="${arg:$i+2:1}"; printf -v input_byte_three "${b:+%d}" "'$b"
+			b="${arg:$i+3:1}"; printf -v input_byte_four "${b:+%d}" "'$b"
+			b="${arg:$i+4:1}"; printf -v input_byte_five "${b:+%d}" "'$b"
 			algo.base32_encode_impl
-		done; unset -v i c
+		done; unset -v i b
 	elif [ "$flag" = '--use-stdin' ]; then
 		while IFS=' ' read -r input_byte_{one,two,three,four,five}; do
 			algo.base32_encode_impl
@@ -55,19 +55,19 @@ algo.base32_decode() {
 		fi
 
 		# shellcheck disable=SC1007
-		local i= c=
+		local i= b=
 		# shellcheck disable=SC2059
 		for ((i=0; i<${#arg}; i=i+8)); do
-			c="${arg:$i:1}"; printf -v input_byte_one "${c:+%c}" "$c"
-			c="${arg:$i+1:1}"; printf -v input_byte_two "${c:+%c}" "$c"
-			c="${arg:$i+2:1}"; printf -v input_byte_three "${c:+%c}" "$c"
-			c="${arg:$i+3:1}"; printf -v input_byte_four "${c:+%c}" "$c"
-			c="${arg:$i+4:1}"; printf -v input_byte_five "${c:+%c}" "$c"
-			c="${arg:$i+5:1}"; printf -v input_byte_six "${c:+%c}" "$c"
-			c="${arg:$i+6:1}"; printf -v input_byte_seven "${c:+%c}" "$c"
-			c="${arg:$i+7:1}"; printf -v input_byte_eight "${c:+%c}" "$c"
+			b="${arg:$i:1}"; printf -v input_byte_one "${b:+%c}" "$b"
+			b="${arg:$i+1:1}"; printf -v input_byte_two "${b:+%c}" "$b"
+			b="${arg:$i+2:1}"; printf -v input_byte_three "${b:+%c}" "$b"
+			b="${arg:$i+3:1}"; printf -v input_byte_four "${b:+%c}" "$b"
+			b="${arg:$i+4:1}"; printf -v input_byte_five "${b:+%c}" "$b"
+			b="${arg:$i+5:1}"; printf -v input_byte_six "${b:+%c}" "$b"
+			b="${arg:$i+6:1}"; printf -v input_byte_seven "${b:+%c}" "$b"
+			b="${arg:$i+7:1}"; printf -v input_byte_eight "${b:+%c}" "$b"
 			algo.base32_decode_impl
-		done; unset -v i c
+		done; unset -v i b
 	elif [ "$flag" = '--use-stdin' ]; then
 		while IFS=' ' read -r input_byte_{one,two,three,four,five,six,seven,eight}; do
 			algo.base32_decode_impl
@@ -95,14 +95,14 @@ algo.base64_encode() {
 		fi
 
 		# shellcheck disable=SC1007
-		local i= c=
+		local i= b=
 		# shellcheck disable=SC2059
 		for ((i=0; i<${#arg}; i=i+3)); do
-			c="${arg:$i:1}"; printf -v input_byte_one "${c:+%d}" "'$c"
-			c="${arg:$i+1:1}"; printf -v input_byte_two "${c:+%d}" "'$c"
-			c="${arg:$i+2:1}"; printf -v input_byte_three "${c:+%d}" "'$c"
+			b="${arg:$i:1}"; printf -v input_byte_one "${b:+%d}" "'$b"
+			b="${arg:$i+1:1}"; printf -v input_byte_two "${b:+%d}" "'$b"
+			b="${arg:$i+2:1}"; printf -v input_byte_three "${b:+%d}" "'$b"
 			algo.base64_encode_impl
-		done; unset -v i c
+		done; unset -v i b
 	elif [ "$flag" = '--use-stdin' ]; then
 		while IFS=' ' read -r input_byte_{one,two,three}; do
 			algo.base64_encode_impl
@@ -130,15 +130,15 @@ algo.base64_decode() {
 		fi
 
 		# shellcheck disable=SC1007
-		local i= c=
+		local i= b=
 		# shellcheck disable=SC2059
 		for ((i=0; i<${#arg}; i=i+4)); do
-			c="${arg:$i:1}"; printf -v input_byte_one "${c:+%c}" "$c"
-			c="${arg:$i+1:1}"; printf -v input_byte_two "${c:+%c}" "$c"
-			c="${arg:$i+2:1}"; printf -v input_byte_three "${c:+%c}" "$c"
-			c="${arg:$i+3:1}"; printf -v input_byte_four "${c:+%c}" "$c"
+			b="${arg:$i:1}"; printf -v input_byte_one "${b:+%c}" "$b"
+			b="${arg:$i+1:1}"; printf -v input_byte_two "${b:+%c}" "$b"
+			b="${arg:$i+2:1}"; printf -v input_byte_three "${b:+%c}" "$b"
+			b="${arg:$i+3:1}"; printf -v input_byte_four "${b:+%c}" "$b"
 			algo.base64_decode_impl
-		done; unset -v i c
+		done; unset -v i b
 	elif [ "$flag" = '--use-stdin' ]; then
 		while IFS=' ' read -r input_byte_{one,two,three,four}; do
 			algo.base64_decode_impl
