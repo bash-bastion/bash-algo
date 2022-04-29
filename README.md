@@ -26,8 +26,6 @@ All algorithms use _only_ builtins and create _no subshells_
 ## Roadmap
 
 - Pem_encode/decode uses subshells
-- Better error handling
-- Input through stdin (--input/--stdin?)
 
 ## Installation
 

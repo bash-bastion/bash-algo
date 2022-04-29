@@ -23,7 +23,7 @@ Decodes a base32 sequence of characters to a string
 
 ### algo.base64_encode()
 
-Encodes an arbitrary string to a base64 sequence of characters
+Encodes an arbitrary string to a base32 sequence of characters
 
 #### Arguments
 
