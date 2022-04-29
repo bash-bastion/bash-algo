@@ -17,8 +17,6 @@ manDirs = []
 
 [run.setOptions]
 errexit = 'on'
-errtrace = 'on'
-functrace = 'on'
 pipefail = 'on'
 
 [run.shoptOptions]
