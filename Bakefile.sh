@@ -9,3 +9,7 @@ task.docs() {
 		shdoc < "./pkg/src/public/$f.sh" > "./docs/$f.md"
 	done
 }
+
+task.lint() {
+	shfmt -w -ln bash -sr ./pkg ./Bakefile.sh
+}

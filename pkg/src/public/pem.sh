@@ -18,7 +18,8 @@ algo.pem_encode() {
 		if printf '%s\n' "$line" >> "$file"; then :; else
 			printf '%s\n' "Error: Could not write to file (code $?)" >&2
 		fi
-	done <<< "$pem_contents"; unset line
+	done <<< "$pem_contents"
+	unset line
 
 	if printf -- '-----END %s-----\n' "$pem_label" >> "$file"; then :; else
 		printf '%s\n' "Error: Could not write to file (code $?)" >&2
@@ -29,7 +30,8 @@ algo.pem_encode() {
 # @description PEM decode data
 # @arg $1 string input
 algo.pem_decode() {
-	unset REPLY; REPLY=
+	unset REPLY
+	REPLY=
 	local input="$1"
 
 	# modes: MODE_INIT, MODE_LABEL, MODE_LABEL_AFTER
@@ -91,7 +93,8 @@ algo.pem_decode() {
 			fi
 			;;
 		esac
-	done < <(printf '%s' "$1"); unset -v char
+	done < <(printf '%s' "$1")
+	unset -v char
 
 	# TODO: bash-error
 	case "$mode" in
@@ -112,4 +115,3 @@ algo.pem_decode() {
 		;;
 	esac >&2
 }
-

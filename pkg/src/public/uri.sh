@@ -3,7 +3,8 @@
 # @description URI encode a particular string
 # @arg $1 string input
 algo.uri_encode() {
-	unset REPLY; REPLY=
+	unset REPLY
+	REPLY=
 	local input="$1"
 
 	# https://tc39.es/ecma262/multipage/global-object.html#sec-encodeuri-uri
@@ -12,7 +13,7 @@ algo.uri_encode() {
 
 	# shellcheck disable=SC1007
 	local i= char=
-	for ((i=0; i<${#input}; ++i)); do
+	for ((i = 0; i < ${#input}; ++i)); do
 		char="${input:$i:1}"
 
 		case "${uri_reserved}${uri_unescaped}" in
@@ -31,7 +32,8 @@ algo.uri_encode() {
 # @description URI decode a particular string
 # @arg $1 string input
 algo.uri_decode() {
-	unset REPLY; REPLY=
+	unset REPLY
+	REPLY=
 	local input="$1"
 
 	local url_encoded="${input//+/ }"
