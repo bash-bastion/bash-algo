@@ -19,7 +19,7 @@ algo.pem_encode() {
 			printf '%s\n' "Error: Could not write to file (code $?)" >&2
 		fi
 	done <<< "$pem_contents"
-	unset line
+	unset -v line
 
 	if printf -- '-----END %s-----\n' "$pem_label" >> "$file"; then :; else
 		printf '%s\n' "Error: Could not write to file (code $?)" >&2
@@ -30,7 +30,7 @@ algo.pem_encode() {
 # @description PEM decode data
 # @arg $1 string input
 algo.pem_decode() {
-	unset REPLY
+	unset -v REPLY
 	REPLY=
 	local input="$1"
 

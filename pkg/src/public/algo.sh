@@ -3,7 +3,7 @@
 # @description Encodes an arbitrary string to a base32 sequence of characters
 # @arg $1 string input
 algo.base32_encode() {
-	unset REPLY; REPLY=
+	unset -v REPLY; REPLY=
 	
 	local flag="$1"
 	if [ -z "$flag" ]; then
@@ -85,7 +85,7 @@ algo.base32_encode() {
 # @description Decodes a base32 sequence of characters to a string
 # @arg $1 string input
 algo.base32_decode() {
-	unset REPLY; REPLY=
+	unset -v REPLY; REPLY=
 	
 	local flag="$1"
 	if [ -z "$flag" ]; then
@@ -125,7 +125,7 @@ algo.base32_decode() {
 # @description Encodes an arbitrary string to a base32 sequence of characters
 # @arg $1 string input
 algo.base64_encode() {
-	unset REPLY; REPLY=
+	unset -v REPLY; REPLY=
 	
 	local flag="$1"
 	if [ -z "$flag" ]; then
@@ -160,7 +160,7 @@ algo.base64_encode() {
 # @description Decodes a base64 sequence of characters to a string
 # @arg $1 string input
 algo.base64_decode() {
-	unset REPLY; REPLY=
+	unset -v REPLY; REPLY=
 	
 	local flag="$1"
 	if [ -z "$flag" ]; then
@@ -197,7 +197,7 @@ algo.base64_decode() {
 # @arg $1 string input
 # @internal
 algo.ascii85_encode() {
-	unset REPLY; REPLY=
+	unset -v REPLY; REPLY=
 	local input="$1"
 
 	local char_str='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.-:+=^!/*?&<>()[]{}@%$#'
@@ -212,7 +212,7 @@ algo.ascii85_encode() {
 # @arg $1 string input
 # @internal
 algo.ascii85_decode() {
-	unset REPLY; REPLY=
+	unset -v REPLY; REPLY=
 	local input="$1"
 }
 
@@ -220,7 +220,7 @@ algo.ascii85_decode() {
 # @arg $1 string input
 # @internal
 algo.md5() {
-	unset REPLY; REPLY=
+	unset -v REPLY; REPLY=
 	local input="$1"
 
 	local m=${#input}

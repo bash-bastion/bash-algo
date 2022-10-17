@@ -3,7 +3,7 @@
 # @description URI encode a particular string
 # @arg $1 string input
 algo.uri_encode() {
-	unset REPLY
+	unset -v REPLY
 	REPLY=
 	local input="$1"
 
@@ -32,7 +32,7 @@ algo.uri_encode() {
 # @description URI decode a particular string
 # @arg $1 string input
 algo.uri_decode() {
-	unset REPLY
+	unset -v REPLY
 	REPLY=
 	local input="$1"
 
