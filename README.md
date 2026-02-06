@@ -22,6 +22,20 @@ All algorithms use _only_ builtins and create _no subshells_
 - [ ] md5
 - [ ] sha1
 - [ ] sha256
+- [x] str.compare
+- [x] str.contains
+- [x] str.count
+- [x] str.fields
+- [x] str.has_prefix
+- [x] str.has_suffix
+- [x] str.index
+- [x] str.join
+- [x] str.last_index
+- [x] str.repeat
+- [-] str.replace
+- [-] str.replace_all
+
+String manipulation functions modeled from Go's [strings](https://pkg.go.dev/strings) module.
 
 ## Roadmap
 
