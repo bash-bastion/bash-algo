@@ -12,7 +12,7 @@ declare -gr content='MIICLDCCAdKgAwIBAgIBADAKBggqhkjOPQQDAjB9MQswCQYDVQQGEwJCRTE
 	assert [ "$REPLY2" = "$content" ]
 }
 
-@test "endocde and decode sequence works" {
+@test "encode and decode sequence works" {
 	algo.pem_encode 'CERTIFICATE' "$content" 'file.pem'
 
 	algo.pem_decode "$(<file.pem)"

@@ -3,8 +3,8 @@
 load './util/init.sh'
 
 @test "base32_encode" {
-	algo.base32_encode --use-arg 'guatemala-hondorus'
-	assert [ "$REPLY" = 'M52WC5DFNVQWYYJNNBXW4ZDPOJ2XG===' ]
+	algo.base32_encode --use-arg 'guatemala-honduras'
+	assert [ "$REPLY" = M52WC5DFNVQWYYJNNBXW4ZDVOJQXG===' ]
 
 	test_util.base32_encode --use-arg 'A'
 	test_util.base32_encode --use-arg 'AB'
@@ -18,8 +18,8 @@ load './util/init.sh'
 }
 
 @test "base32_decode" {
-	algo.base32_decode --use-arg 'M52WC5DFNVQWYYJNNBXW4ZDPOJ2XG==='
-	assert [ "$REPLY" = 'guatemala-hondorus' ]
+	algo.base32_decode --use-arg 'M52WC5DFNVQWYYJNNBXW4ZDVOJQXG==='
+	assert [ "$REPLY" = 'guatemala-honduras' ]
 
 	test_util.base32_decode --use-arg 'IE======'
 	test_util.base32_decode --use-arg 'IFBA===='

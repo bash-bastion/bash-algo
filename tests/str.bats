@@ -64,14 +64,14 @@ load './util/init.sh'
 	str.index 'toilette oil' 'oi'
 	assert [ "$REPLY" -eq 1 ]
 
-	str.index 'silber' 'gold'
+	str.index 'silver' 'gold'
 	assert [ "$REPLY" -eq -1 ]
 }
 
 @test "str.join()" {
-	local -a arr1=(rot orange gelb blau)
+	local -a arr1=(red orange gold blue)
 	str.join 'arr1' '|'
-	assert [ "$REPLY" = 'rot|orange|gelb|blau' ]
+	assert [ "$REPLY" = 'red|orange|gold|blue' ]
 
 	local -a arr2=()
 	str.join 'arr2' '|'
@@ -88,6 +88,6 @@ load './util/init.sh'
 	str.last_index 'toilette oil' 'oi'
 	assert [ "$REPLY" -eq 9 ]
 
-	str.last_index 'silber' 'gold'
+	str.last_index 'silver' 'gold'
 	assert [ "$REPLY" -eq -1 ]
 }

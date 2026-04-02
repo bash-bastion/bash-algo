@@ -129,7 +129,7 @@ str.repeat() {
 	done; unset i
 }
 
-# TODO: behavior differes from Go (will replace overlapping strings)
+# TODO: behavior differs from Go (will replace overlapping strings)
 str.replace() {
 	unset REPLY; REPLY=
 	local str=$1
@@ -148,7 +148,7 @@ str.replace() {
 
 }
 
-# TODO: behavior differes from Go (will replace overlapping strings)
+# TODO: behavior differs from Go (will replace overlapping strings)
 str.replace_all() {
 	unset REPLY; REPLY=
 	local str=$1
